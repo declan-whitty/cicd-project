@@ -32,7 +32,7 @@ jobs:
           npm test | tee test-report.txt
 
       - name: Upload test logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-logs
           path: test-report.txt
