@@ -29,6 +29,7 @@ jobs:
 
       - name: Run tests and save output
         run: |
+          set -o pipefail
           npm test | tee test-report.txt
 
       - name: Upload test logs
@@ -41,4 +42,5 @@ jobs:
         run: echo "Using FAKE_API_KEY=$FAKE_API_KEY"
 
       - name: Trigger Render Deploy Webhook
-        run: curl -X POST $RENDER_DEPLOY_HOOK
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.RENDER_DEPLOY_HOOK != '' }}
+        run: curl -X POST "$RENDER_DEPLOY_HOOK"
