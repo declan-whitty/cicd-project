@@ -128,7 +128,7 @@ npm audit --audit-level=high
 
 The application is hosted on Render.
 
-[Live Application](https://cicd-project-a0b7.onrender.com/)
+[Live Application](https://cicd-project-aob7.onrender.com/)
 
 GitHub Actions can trigger deployment after successful validation using a deployment webhook stored in repository secrets.
 
